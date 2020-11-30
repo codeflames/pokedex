@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokedex_app/pokeapi.dart';
+import 'package:pokedex_app/pokedetail.dart';
 import 'package:pokedex_app/pokemon.dart';
 
 class PokeHome extends StatefulWidget {
@@ -49,12 +51,26 @@ class _PokeHomeState extends State<PokeHome> {
                     Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        snapshot.data[index].name,
-                        style: TextStyle(
-                          fontSize: 16,
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed(
+                        PokeDetail.routeName,
+                        arguments: PokeApi(
+                            name: snapshot.data[index].name,
+                            url: snapshot.data[index].url),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              snapshot.data[index].name,
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            Icon(Icons.navigate_next)
+                          ],
                         ),
                       ),
                     ),
@@ -65,7 +81,7 @@ class _PokeHomeState extends State<PokeHome> {
             } else if (snapshot.hasError) {
               return Text(snapshot.error);
             }
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }),
     );
   }
