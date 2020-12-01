@@ -10,13 +10,16 @@ class PokeHome extends StatefulWidget {
 }
 
 class _PokeHomeState extends State<PokeHome> {
+  //to call the getPokemon api function
+  //from the ApiCalls class in the apicalls.dart file
   final pokes = new ApiCalls();
   Future<List<Results>> pokemons;
+
+  //to store the list of pokemons
   List<Results> pokessList;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     pokessList = pokes.pokeList;
     pokemons = pokes.getPokemons();
@@ -26,7 +29,10 @@ class _PokeHomeState extends State<PokeHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('POkeMons'),
+        title: Text(
+          'POkéMons',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: FutureBuilder(
@@ -92,7 +98,18 @@ class _PokeHomeState extends State<PokeHome> {
                   child: Text('Filter pokemon by name'),
                 ),
                 failure: Center(
-                  child: Text('No pokemon found :('),
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset('assets/image/poke_not_found.png'),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 18.0),
+                        child: Text(
+                          'No pokemon found :(',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 filter: (result) => [
                       result.name,
