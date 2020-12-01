@@ -1,16 +1,18 @@
 # pokedex_app
 
-A new Flutter project.
+[A flutter project to practice calling the pokemon API](https://pokeapi.co/).
 
-## Getting Started
+This is a simple project showing information such as height, weight and description about the original 151 pokemons.
 
-This project is a starting point for a Flutter application.
+## INSPIRATION
 
-A few resources to get you started if this is your first Flutter project:
+The technical part of this project is inspired by:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+[HavardX CS50 android track - pokedex App](https://cs50.harvard.edu/x/2020/tracks/mobile/android/pokedex/)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The design of this project is inspired by:
+
+[Build a Pokemon App](https://youtu.be/yeXJqZCiwTQ)
+
+
+
