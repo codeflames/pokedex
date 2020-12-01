@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/poke_home.dart';
-import 'package:pokedex_app/pokedetail.dart';
+import 'package:pokedex_app/screens/poke_home_screen.dart';
+import 'package:pokedex_app/screens/pokedetail_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.cyan,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: PokeHome(),
-      routes: {
-        PokeDetail.routeName: (context) => PokeDetail(),
-      },
+      // routes: {
+      //   PokeDetail.routeName: (context) => PokeDetail(),
+      // },
     );
   }
 }
